@@ -1,0 +1,36 @@
+{
+  "name": "lint-tools",
+  "version": "0.0.2",
+  "main": "tools/lint/index.js",
+  "type": "module",
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@ls-lint/ls-lint": "^2.2.3",
+    "@markuplint/jsx-parser": "^4.7.13",
+    "@markuplint/react-spec": "^4.5.13",
+    "@types/bun": "^1.1.14",
+    "@vituum/vite-plugin-pug": "^1.1.0",
+    "autoprefixer": "^10.4.20",
+    "cspell": "^8.16.1",
+    "destyle.css": "^4.0.1",
+    "lefthook": "^1.8.4",
+    "markuplint": "^4.11.3",
+    "postcss-calc": "^10.0.2",
+    "stylelint": "^16.11.0",
+    "stylelint-config-idiomatic-order": "^10.0.0",
+    "stylelint-config-standard": "^36.0.1",
+    "vite": "^6.0.1",
+    "vituum": "^1.1.1"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "bun ./lint-tools/linting.ts"
+  },
+  "peerDependencies": {
+    "typescript": "^5.5.3"
+  },
+  "author": "monoharada",
+  "license": "MIT"
+}
