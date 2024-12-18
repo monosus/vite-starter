@@ -1,2 +1,2 @@
-@import "_import/_header.css" layer(components);
-@import "_import/_footer.css" layer(components);
+@import "_import/header.css?inline" layer(components);
+@import "_import/footer.css?inline" layer(components);

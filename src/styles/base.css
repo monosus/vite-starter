@@ -5,13 +5,6 @@
     box-sizing: border-box;
   }
 
-  html.is-locked {
-    position: fixed;
-    left: 0;
-    width: 100%;
-    overflow-y: scroll;
-  }
-
   body {
     background-color: var(--color-white);
     color: var(--color-black);
@@ -22,44 +15,8 @@
     text-size-adjust: 100%;
   }
 
-  button,
-  input,
-  select,
-  textarea {
-    border-radius: 0;
-    background: none;
-    box-shadow: none;
-    font-family: inherit;
-    font-size: 100%;
-  }
-
-  textarea {
-    resize: none;
-  }
-
-  strong {
-    font-weight: 700;
-  }
-
-  sub {
-    vertical-align: sub;
-  }
-
-  img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-  }
-
   a {
     color: var(--color-black);
     text-decoration: none;
-
-    &:hover,
-    &:active,
-    &:focus,
-    &:visited {
-      text-decoration: underline;
-    }
   }
 }

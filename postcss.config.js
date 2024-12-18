@@ -1,6 +1,17 @@
+import autoprefixer from 'autoprefixer';
+import postcssCalc from 'postcss-calc';
+import reporter from 'postcss-reporter';
+import stylelint from 'stylelint';
+
 export default {
-  plugins: {
-    autoprefixer: {},
-    'postcss-calc': true,
-  },
+  plugins: [
+    stylelint({
+      configFile: './lint-tools/.stylelintrc.json',
+    }),
+    autoprefixer(),
+    postcssCalc(),
+    reporter({
+      clearReportedMessages: true,
+    }),
+  ],
 };
