@@ -1,7 +1,10 @@
-import pug from '@vituum/vite-plugin-pug';
 import { defineConfig } from 'vite';
-import beautify from 'vite-plugin-beautify';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
+import nodeFs from 'node:fs';
+import nodePath from 'node:path';
+import pug from '@vituum/vite-plugin-pug';
+import sizeOf from 'image-size';
+import beautify from 'vite-plugin-beautify';
 import vituum from 'vituum';
 
 export default defineConfig({
@@ -19,19 +22,17 @@ export default defineConfig({
       output: {
         entryFileNames: 'assets/js/[name].js',
         assetFileNames: ({ names, originalFileNames }) => {
-          if (originalFileNames.length) {
-            const originalPath = originalFileNames[0].replace(/src\/(images|styles)\//, '');
-
+          if (originalFileNames?.length) {
+            const originalPath = originalFileNames[0].match(/src\/(images|styles)\/(.*\/)[^/]*$/)?.[2] || '';
             if (/\.(css)$/.test(names)) {
-              return `assets/css/${originalPath}`;
+              return `assets/css/${originalPath}[name][extname]`;
             }
-
             if (/\.(jpg|jpeg|svg|png|webp|gif)$/.test(names)) {
-              return `assets/images/${originalPath}`;
+              return `assets/images/${originalPath}[name][extname]`;
             }
           }
 
-          return 'assets/other/[name][extname]';
+          return 'assets/[name][extname]';
         },
       },
     },
@@ -40,10 +41,16 @@ export default defineConfig({
     vituum({
       input: ['./src/styles/**/*.{css,scss}', './src/scripts/main.{js,ts}'],
       imports: {
-        paths: []
+        paths: [],
       },
     }),
-    pug(),
+    pug({
+      globals: {
+        _nodeFs: nodeFs,
+        _nodePath: nodePath,
+        _sizeOf: sizeOf,
+      },
+    }),
     ViteImageOptimizer({
       png: { quality: 75 },
       jpeg: { quality: 75 },
@@ -64,7 +71,7 @@ export default defineConfig({
         enabled: false,
       },
       css: {
-        enabled: false,
+        enabled: true,
       },
     }),
   ],

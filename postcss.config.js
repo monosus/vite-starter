@@ -5,11 +5,11 @@ import stylelint from 'stylelint';
 
 export default {
   plugins: [
+    autoprefixer(),
+    postcssCalc(),
     stylelint({
       configFile: './lint-tools/.stylelintrc.json',
     }),
-    autoprefixer(),
-    postcssCalc(),
     reporter({
       clearReportedMessages: true,
     }),

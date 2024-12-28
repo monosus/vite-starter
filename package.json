@@ -12,7 +12,7 @@
   "peerDependencies": {
     "typescript": "^5.5.3"
   },
-  "author": "monothai",
+  "author": "MonoThai",
   "license": "MIT",
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
@@ -23,6 +23,7 @@
     "@vituum/vite-plugin-pug": "^1.1.0",
     "autoprefixer": "^10.4.20",
     "cspell": "^8.16.1",
+    "image-size": "^1.1.1",
     "lefthook": "^1.8.4",
     "markuplint": "^4.11.3",
     "postcss-calc": "^10.0.2",
@@ -33,7 +34,7 @@
     "stylelint-config-idiomatic-order": "^10.0.0",
     "stylelint-config-standard": "^36.0.1",
     "svgo": "^3.3.2",
-    "vite": "^6.0.1",
+    "vite": "^6.0.6",
     "vite-plugin-beautify": "^1.0.0",
     "vite-plugin-image-optimizer": "^1.1.8",
     "vituum": "^1.1.1"
